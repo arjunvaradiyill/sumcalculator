@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Sum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .invalid {
+            color: red;
+        }
+    </style>
+    <script>
+        function getSumOfNumbers() {
+            let num = prompt("Enter a number between 0 and 1,000,000:");
+            num = parseInt(num);
+
+            let resultElement = document.getElementById("result");
+
+            if (isNaN(num) || num < 0 || num > 1000000) {
+                resultElement.textContent = "Invalid number";
+                resultElement.classList.add("invalid");
+            } else {
+                let sum = (num * (num + 1)) / 2; // Sum formula for n natural numbers
+                resultElement.textContent = "Sum of numbers up to " + num + " is " + sum;
+                resultElement.classList.remove("invalid");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sum Calculator</h1>
+        <button onclick="getSumOfNumbers()">Enter a Number</button>
+        <p id="result"></p>
+    </div>
+</body>
+</html>
